@@ -45,7 +45,7 @@ void AP_AI::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	ReplaceFromWrongDirection();
+	//ReplaceFromWrongDirection();
 }
 
 void AP_AI::AccelerateInput(float value)

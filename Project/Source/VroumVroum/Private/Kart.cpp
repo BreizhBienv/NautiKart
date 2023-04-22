@@ -401,7 +401,9 @@ void AKart::ReplaceKart()
 		newRot = previousCheckPoint->GetActorRotation();
 	}
 	
-	sphereCollision->SetWorldLocationAndRotation(newPos, newRot, false, nullptr,
+	sphereCollision->SetWorldLocation(newPos, false, nullptr,
+		ETeleportType::ResetPhysics);
+	kartHidden->SetRelativeRotation(newRot, false, nullptr,
 		ETeleportType::ResetPhysics);
 	currentAcceleration = 0;
 	currentSpeed = 0;
