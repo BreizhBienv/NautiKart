@@ -9,4 +9,5 @@ Controls are:
 <br>Shift to drift
 <br>P     to pause
 
-Youtube link: https://www.youtube.com/watch?v=cwfFRLvkbpY 
+## Youtube Overview
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/cwfFRLvkbpY/0.jpg)](https://www.youtube.com/watch?v=cwfFRLvkbpY)
