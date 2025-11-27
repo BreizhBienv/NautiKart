@@ -15,6 +15,28 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@v6.0.0
+      with:
+        repository: ${{ github.repository }}    
+        sparse-checkout: |
+          .github
+          Project
+
+    - name: Generate Project Files
+      shell: cmd
+      run: >
+        "${{ env.ENGINE_PATH}}/Engine/Build/BatchFiles/Build.bat"
+          -projectfiles -project="${{ github.workspace }}\ProjectName.uproject" 
+          -game -rocket -progress 
+          -log="%~dp0\Saved\Logs\UnrealVersionSelector-2025.05.07-00.56.10.log"
+
+    - name: Generate intermediates and binaries 
+      shell: cmd
+      run: >
+        "${{ env.ENGINE_PATH}}/Engine/Build/BatchFiles/Build.bat"
+        "${{ github.workspace }}\Project\VrouVroum.uproject" NautiKart Win64 Development
+
     - name: Create build folder
       shell: cmd
       run: mkdir Build
@@ -27,6 +49,8 @@ jobs:
           -noP4 -platform=Win64 -clientconfig=Shipping -serverconfig=Development
           -cook -allmaps -build -stage -pak -archive
           -archivedirectory="${{ github.workspace }}\Build"
+
+      
 
     - name: Cache
       uses: actions/cache@v4.3.0
