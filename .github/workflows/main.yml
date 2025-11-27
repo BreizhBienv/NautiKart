@@ -8,7 +8,7 @@ on:
 
 env:
   ENGINE_PATH: "C:/Program Files/Epic Games/UE_5.6"
-  BUILD_PATH: "%GITHUB_WORKSPACE%/Build"
+  BUILD_PATH: "${{ github.workspace }}/Build"
 
 jobs:
   Test:
@@ -24,7 +24,7 @@ jobs:
       shell: cmd
       run: >
         "${{ env.ENGINE_PATH }}/Engine/Build/BatchFiles/RunUAT.bat" BuildCookRun
-          -project="${{ env.workspace }}/Project/VroumVroum.uproject"
+          -project="${{ github.workspace }}/Project/VroumVroum.uproject"
           -noP4 -platform=Win64 -clientconfig=Shipping -serverconfig=Development
           -cook -allmaps -build -stage -pak -archive
           -archivedirectory=${{env.BUILD_PATH}}
