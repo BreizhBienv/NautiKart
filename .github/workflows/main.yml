@@ -27,9 +27,9 @@ jobs:
       shell: cmd
       run: >
         "${{ env.ENGINE_PATH }}/Engine/Build/BatchFiles/Build.bat"
-          -projectfiles -project="${{ github.workspace }}/Project/VroumVroum.uproject" 
+          -projectfiles -project="${{ github.workspace }}\Project\VroumVroum.uproject" 
           -game -rocket -progress 
-          -log="${{ github.workspace }}/Saved/Logs/UnrealVersionSelector.log"
+          -log="${{ github.workspace }}\Saved\Logs\UnrealVersionSelector.log"
 
     - name: Generate intermediates and binaries 
       shell: cmd
