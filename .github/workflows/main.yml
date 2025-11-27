@@ -27,7 +27,7 @@ jobs:
       shell: cmd
       run: >
         "${{ env.ENGINE_PATH}}/Engine/Build/BatchFiles/Build.bat"
-          -projectfiles -project="${{ github.workspace }}\Project\VroumVroum.uproject" 
+          -projectfiles -project="%GITHUB_WORKSPACE%\Project\VroumVroum.uproject" 
           -game -rocket -progress 
           -log="%~dp0\Saved\Logs\UnrealVersionSelector-2025.05.07-00.56.10.log"
 
