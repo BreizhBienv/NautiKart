@@ -12,7 +12,7 @@ env:
 jobs:
   Test:
     name: Build unreal project
-    runs-on: windows-latest
+    runs-on: self-hosted
 
     steps:
     - name: Checkout
