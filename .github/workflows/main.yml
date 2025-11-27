@@ -21,11 +21,12 @@ jobs:
       run: mkdir Build
       
     - name: Build
-      run: ${{ env.ENGINE_PATH }}"/Engine/Build/BatchFiles/RunUAT.bat" BuildCookRun `
-            -project="%GITHUB_WORKSPACE%/Project/VroumVroum.uproject" `
-            -noP4 -platform=Win64 -clientconfig=Shipping -serverconfig=Development `
-            -cook -allmaps -build -stage -pak -archive `
-            -archivedirectory=${{env.BUILD_PATH}}
+      run: >
+        "${{ env.ENGINE_PATH }}/Engine/Build/BatchFiles/RunUAT.bat" BuildCookRun
+          -project="%GITHUB_WORKSPACE%/Project/VroumVroum.uproject"
+          -noP4 -platform=Win64 -clientconfig=Shipping -serverconfig=Development
+          -cook -allmaps -build -stage -pak -archive
+          -archivedirectory=${{env.BUILD_PATH}}
 
     - name: Cache
       uses: actions/cache@v4.3.0
