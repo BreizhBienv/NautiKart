@@ -1,0 +1,20 @@
+name: Try to build and download
+
+on:
+  push:
+    branches:
+    - main
+  workflow_dispatch:
+
+jobs:
+  Test:
+    name: deploy to staging
+    runs-on: windows-latest
+
+    steps:
+    - name: Build
+      run: ${{ env.ENGINE_PATH }}\Engine\Build\BatchFiles\RunUAT.bat" BuildCookRun `
+            -project="%GITHUB_WORKSPACE%\ProjectName.uproject" `
+            -noP4 -platform=Win64 -clientconfig=Shipping -serverconfig=Development `
+            -cook -allmaps -build -stage -pak -archive `
+            -archivedirectory="%GITHUB_WORKSPACE%\Build"
