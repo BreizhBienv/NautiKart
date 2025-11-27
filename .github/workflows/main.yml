@@ -27,7 +27,7 @@ jobs:
       shell: cmd
       run: >
         "${{ env.ENGINE_PATH}}/Engine/Build/BatchFiles/Build.bat"
-          -projectfiles -project="${{ github.workspace }}\Project\VrouVroum.uproject" 
+          -projectfiles -project="${{ github.workspace }}\Project\VroumVroum.uproject" 
           -game -rocket -progress 
           -log="%~dp0\Saved\Logs\UnrealVersionSelector-2025.05.07-00.56.10.log"
 
@@ -35,7 +35,7 @@ jobs:
       shell: cmd
       run: >
         "${{ env.ENGINE_PATH}}/Engine/Build/BatchFiles/Build.bat"
-        "${{ github.workspace }}\Project\VrouVroum.uproject" NautiKart Win64 Development
+        "${{ github.workspace }}\Project\VroumVroum.uproject" NautiKart Win64 Development
 
     - name: Create build folder
       shell: cmd
