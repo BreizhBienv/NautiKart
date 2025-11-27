@@ -8,7 +8,6 @@ on:
 
 env:
   ENGINE_PATH: "C:/Program Files/Epic Games/UE_5.6"
-  BUILD_PATH: "/Build"
 
 jobs:
   Test:
@@ -27,10 +26,10 @@ jobs:
           -project="${{ github.workspace }}/Project/VroumVroum.uproject"
           -noP4 -platform=Win64 -clientconfig=Shipping -serverconfig=Development
           -cook -allmaps -build -stage -pak -archive
-          -archivedirectory=${{ github.workspace }}{{env.BUILD_PATH}}
+          -archivedirectory="${{ github.workspace }}\Build"
 
     - name: Cache
       uses: actions/cache@v4.3.0
       with:
         # A list of files, directories, and wildcard patterns to cache and restore
-        path:  ${{ github.workspace }}{{env.BUILD_PATH}}
+        path: "${{ github.workspace }}/Build"
