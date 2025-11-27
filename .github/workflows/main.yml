@@ -21,6 +21,7 @@ jobs:
       run: mkdir Build
       
     - name: Build
+      shell: cmd
       run: >
         "${{ env.ENGINE_PATH }}/Engine/Build/BatchFiles/RunUAT.bat" BuildCookRun
           -project="%GITHUB_WORKSPACE%/Project/VroumVroum.uproject"
